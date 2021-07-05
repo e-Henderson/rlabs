@@ -1,0 +1,21 @@
+package labConstructors;
+
+public class Constructors {
+	
+	//creating constructor
+	public Constructors(int value) {
+		System.out.println(value);
+	}
+	//main method below
+	public static void main(String[] args) {
+		Constructors cons = new Constructors(5983);
+		/*
+		 * notice that Constructors(5983) now has 
+		 * an argument and is no longer a default
+		 * constructor. WE have defined a 
+		 * constructor above and we can use 
+		 * that. 
+		 */
+		
+	}
+}
