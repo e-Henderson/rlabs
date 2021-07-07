@@ -43,16 +43,19 @@ public class Converter {
 			case 1:
 				System.out.println("Enter quantity: ");
 				qty = s.nextDouble();
+				//s.scanQty(double qty);
 				System.out.println("Miles to Kilometer conversion = " + mToK.conMtoK(qty));//mToK
 			break;
 			case 2: 
 				System.out.println("Enter quantity: ");
 				qty = s.nextDouble();
+				//s.scanQty(double qty);
 				System.out.println("Quarts to Liters conversion = " + qToL.conQtoL(qty));//qToL
 			break;
 			case 3: 
 				System.out.println("Enter quantity: ");
 				qty = s.nextDouble();
+				//s.scanQty(double qty);
 				System.out.println("Newtons to Slugs conversion = " + nToS.conNtoS(qty));//nToS
 			break;
 			case 4: System.out.println("Exiting menu. ");//nothing
