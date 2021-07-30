@@ -1,5 +1,8 @@
 package projectTests;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Multithreading {
 	public static void main(String[] args) throws Exception{//general exceptions
 		//using thread class
@@ -8,7 +11,7 @@ public class Multithreading {
 		//calls the run method internally, does not need to 
 		//assigned by dot operator
 		Worker w2 = new Worker();
-		w1.join();
+		//w1.join();//starts a thread, waits until first thread to die then the second thread will start
 		w2.start();
 		
 		
@@ -22,18 +25,28 @@ public class Multithreading {
 
 class Worker extends Thread{
 	
+	List<String> sharedResource = new ArrayList<String>();
+	
 	public void run() {
 		System.out.println("Running thread ["+getName()+"]....");
 		for (int i=0;i<5;i++) {
 			System.out.println("["+getName()+"]" + i);
+			
 			try {
 				sleep(500);//pauses the thread for 500 ms
-			} catch (InterruptedException e) {
-				
-				e.printStackTrace();
-			}
+			} catch (InterruptedException e) {e.printStackTrace();}
+		}
+		synchronized(sharedResource) {//synchs resources within the thread
+		
+			registerUser();
 		}
 	}
+	void registerUser() {
+		//data read
+		sharedResource.add("Test");
+		//update is done
+	}
+	
 }
 
 class TaskExecuter implements Runnable {
