@@ -21,10 +21,11 @@ public class Account {
 		this.userPassword=userPassword;
 	}
 	
-	public Account (int custId, String fname, String lname) {//for customer table
+	public Account (int custId, String fname, String lname, double balance) {//for customer table
 		this.custId=custId;
 		this.fname=fname;
 		this.lname=lname;
+		this.balance=balance;
 	}
 	
 	//TODO: place Account constructor with account info when needed

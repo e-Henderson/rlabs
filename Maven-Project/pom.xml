@@ -4,12 +4,42 @@
   <artifactId>Maven-Project</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
-<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
-	<dependency>
-    	<groupId>org.postgresql</groupId>
-    	<artifactId>postgresql</artifactId>
-    	<version>42.2.23</version>
-	</dependency>
-
-</dependencies>
+		<!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- apache logging -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.14.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+	    	<groupId>org.postgresql</groupId>
+	    	<artifactId>postgresql</artifactId>
+	    	<version>42.2.23</version>
+		</dependency>
+	</dependencies>
+	<!-- tells maven which Java vers. we're using -->
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -30,7 +30,7 @@ public class AccountDAO implements AccountInterface{
 		List<Account> logIn = new ArrayList<Account>();
 		try (Connection connect=DriverManager.getConnection(URL,Conn_User,Conn_Pass)){
 			
-			PreparedStatement pstmt= connect.prepareStatement("select * from bank.login l");//exactly as it appears in sql
+			PreparedStatement pstmt= connect.prepareStatement("select * from bank.login l");
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Account acct = new Account(rs.getInt(1),rs.getString(2));
@@ -69,7 +69,7 @@ public class AccountDAO implements AccountInterface{
 		// TODO Auto-generated method stub
 		Connection connect = DriverManager.getConnection(URL,Conn_User,Conn_Pass);
 		
-		PreparedStatement pstmt = connect.prepareStatement("insert into bank.login l (user_id, userpass) values (?,?)");
+		PreparedStatement pstmt = connect.prepareStatement("insert into bank.login (user_id, userpass) values (?,?);");
 		pstmt.setInt(1, account.getUserId());
 		pstmt.setString(2, account.getUserPassword());
 		
@@ -81,12 +81,30 @@ public class AccountDAO implements AccountInterface{
 	public int addAccountInfo(Account account) throws Exception {
 		Connection connect = DriverManager.getConnection(URL,Conn_User,Conn_Pass);
 		 
-		PreparedStatement pstmt2 = connect.prepareStatement("insert into bank.customer c (cust_id, firstn, lastn) values (?,?,?)");
+		PreparedStatement pstmt2 = connect.prepareStatement("insert into bank.customer (cust_id, firstn, lastn, balance) values (?,?,?,?);");//add balance
 		pstmt2.setInt(1, account.getCustId());
 		pstmt2.setString(2, account.getFirstN());
 		pstmt2.setString(3, account.getLastN());
-		
+		pstmt2.setLong(4, (long) account.getBalance());//add a balance line 
 		int insert2 = pstmt2.executeUpdate();
 		return insert2;
 	}
+
+	@Override
+	public void viewAcctInfo(int custId) throws SQLException {
+		try(Connection connect = DriverManager.getConnection(URL,Conn_User,Conn_Pass)){
+			PreparedStatement pstmt = connect.prepareStatement("select cust_id, firstn ,lastn, balance from bank.customer c2 where cust_id = ?");
+			pstmt.setInt(1, custId);//where I'd use the login info if there
+			
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Account acct = new Account(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getLong(4));
+				System.out.println(acct);
+			}
+			
+		}catch(SQLException e) {e.printStackTrace();}
+		
+	}
+
+	
 }

@@ -29,5 +29,11 @@ public class AccountManager implements AccountInterface{
 	public int addAccountInfo(Account account) throws Exception {
 		return aDao.addAccountInfo(account);
 	}
+
+	@Override
+	public void viewAcctInfo(int custId) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
