@@ -10,53 +10,62 @@ import service.AccountManager;
 public class BankConsole {
 	private AccountManager am = new AccountManager();
 	private static Scanner scan = new Scanner(System.in);
-	public void startMenu() {
-		boolean exit = false;
-		//TODO: start putting the logger stuff in asap
-		//TODO: try reworking the menu so that the login does not pop up while in the current menu
-		/*Thinking of having two do/while loops or something nested that can only work if the login is successful. 
-		 * so...if login is successful, go to menu
-		 * 		else if the login is not successful, send error
-		 */
+	
+	public void startMenu() {//probably a way to split this method up. Too long. 
+		boolean exit = false;//might need another boolean variable since there are two do/while
+		//TODO: put in logger
+		//TODO: place junit tests 
 		do {
-			System.out.println("Choose an option: ");
-			menu();//prints menu options
-			String opt = scan.next();
+			loginMenu();
+			String choice = scan.next();
 			
-			switch(opt) {
-			case "1"://login stuff
+			switch (choice) {
+			case "1":
 				login();
 				break;
-			case "2"://create account
+			case "2":
 				createAccount(scan);
 				break;
-			case "3"://view balance of account
-				System.out.println("Feature not available.");
-				break;
-			case "4"://make withdrawal/deposit
-				System.out.println("Feature not available.");
-				break;
-			case "5":
-				System.out.println("Feature not available.");
-				break;
-			case "6":
+			case "3":
 				exit=true;
 				break;
 			default:
 				break;
 			}
+			do {
+				System.out.println("Choose an option: ");
+				menu();//prints menu options
+				String opt = scan.next();
+				
+				switch(opt) {
+				case "1"://view account
+					System.out.println("Feature not available.");
+					break;
+				case "2"://withdraw/deposit
+					System.out.println("Not available.");
+					break;
+				case "0":
+					exit=true;
+					break;
+				default:
+					break;
+				}
+			}while(!exit);
 		}while(!exit);
 		//scan.close();
 		System.out.println("You have exited the application.");
 		
 	}
-	//menu method
-	private void menu() {
+	private void loginMenu() {
 		System.out.println("1. Login");
 		System.out.println("2. Create Account");
-		System.out.println("3. View Balance of Account");
-		System.out.println("4. Withdrawal/Deposit");
-		System.out.println("6. Quit Application");
+	}
+	
+	//menu method
+	private void menu() {
+		System.out.println("1. View Balance of Account");
+		System.out.println("2. Withdrawal/Deposit");
+		System.out.println("0. Quit Application");
 		//System.out.println("6. Transfer Funds");
 	}
 	
@@ -101,9 +110,7 @@ public class BankConsole {
 		}
 	}
 	//TODO: add view account method
-	private void viewAccount() {
-		
-	}
+	private void viewAccount() {}
 	//TODO: add view customer method
 	
 	//TODO: add make withdrawal method

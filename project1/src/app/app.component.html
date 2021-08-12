@@ -1,0 +1,33 @@
+<h1>Expense Reimbursement System</h1>
+<!-- nav -->
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/">Welcome</a>
+      <a class="nav-item nav-link" routerLink="/login"> Login</a>
+      <a class="nav-item nav-link" routerLink="/register"> Register</a>
+  </div>
+</nav>
+
+<!-- main content container -->
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-sm-8 offset-sm-2">
+              <router-outlet></router-outlet>
+          </div>
+      </div>
+  </div>
+</div>
+  <!--If any problems happen, go to part 2 of the tutorial series. Obviously
+    some of this code will need to be reworked later tonight for my own purposes
+    but for now it works. This is more for learning processes and coding experience.
+    Comment where and when you need to. 
+    <div>
+    <h3>Login</h3>
+        <p>
+            <input type="text" name="title" [value]="title" (input)="onTitleInput($event)" placeholder="Username">
+            <br>
+            <input type="text" name="price" [value]="price" (input)="onPriceInput($event)" placeholder="Password">
+        </p>
+    </div>
+  <app-welcome></app-welcome>-->

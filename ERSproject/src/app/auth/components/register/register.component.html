@@ -1,0 +1,60 @@
+<!--<p>register works!</p>-->
+<div class="row">
+    <div class="col-md-6.offset-md-3.mt-4">
+        <h3>Register new Employee</h3><!--
+            do one more class to differentiate the employee from a financial manager. 
+            so maybe for employee, id=number
+                    for manager, manager or man01 for example. typing  manager might be easier to parse
+        -->
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="mb-3">
+
+              <label for="registerUsername" 
+              class="form-label">Login Username</label>
+              <input type="text" 
+              name="Username"
+              ngModel required #username="ngModel"
+              class="form-control" 
+              id="registerUsername"
+              placeholder="Enter Username">
+
+            </div>
+
+            <div class="mb-3">
+
+              <label for="registerPassword" 
+              class="form-label">Password</label>
+              <input type="password"
+              name="Password"
+              ngModel required #password="ngModel" 
+              class="form-control" 
+              id="registerPassword"
+              placeholder="Enter Password">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label for="registerEmail" 
+                class="form-label">Email</label>
+                <input type="email" 
+                name="Email"
+                ngModel required #email="ngModel"
+                class="form-control" 
+                id="registerEmail"
+                placeholder="Enter Email">
+  
+              </div>
+
+            <div class="mb-3 form-check">
+
+                <a [routerLink]="['register']" >Register</a>
+            </div>
+
+            <button type="submit" [disabled]="f.invalid" class="btn btn-primary">Register</button>
+          </form>
+    </div>
+</div> <!--md=medium
+    col=column
+    mt=margin top
+    -->

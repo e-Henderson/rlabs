@@ -68,11 +68,6 @@ public class Converter {
 		
 	}
 	
-	//place scanner method here.
-	//public double scanQty(double qty) {
-		//qty=s.nextDouble;
-	//}
-	
 	//place conversion method (miles to kilo)
 	public double conMtoK(double qty) {
 		return qty*1.609;

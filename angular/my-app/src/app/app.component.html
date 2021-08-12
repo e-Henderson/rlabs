@@ -1,0 +1,44 @@
+<!--
+  app.component.html is defined as the HTML template 
+  associated with the root AppComponent. This 
+  creates what the web page will look like at a basic
+  level. 
+
+  This is different from the app.component.css. That file contains the 
+  CSS stylesheet which will be used to make the web page look nice for the
+  root component
+-->
+<div style="border:2px dashed  #888;padding:2em">
+
+  Hello {{title}}
+
+  <app-product name="TV" price ="$400" [supplier]='supplier' (remove)="onRemoveProduct($event)"></app-product>
+  <app-product name="Book" price ="$35" [supplier]='supplier' (remove)="onRemoveProduct($event)"></app-product>
+  <app-product name="PS5" price ="$ ?" [supplier]='supplier' (remove)="onRemoveProduct($event)"></app-product>
+
+  <div [ngStyle]="{'font-style': 'italic'}" >Footer</div><!--attribute directives-->
+  <div [ngClass]="['highlight','bold']">Footer</div>
+`<!--*ngIf, the * is a structural directive-->
+  <div *ngIf="addProduct; else x">New Product</div>
+
+  <ng-template #x><!--used in the else portion above-->
+    <div>
+      Product Add is restricted
+    </div>
+  </ng-template>
+
+  <ul>
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+    <li>Grape</li>
+    <li>Strawberry</li>
+  </ul>
+
+  <ol>
+    <li *ngFor="let v of vehicles; let i=index">{{i}}={{v}}</li>
+  </ol>
+  
+  <!--<input (click)='sayHello()'>-->
+
+</div>
