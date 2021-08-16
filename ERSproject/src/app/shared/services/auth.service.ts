@@ -7,7 +7,7 @@ import {map} from 'rxjs/operators'
 })
 export class AuthService {
 
-  authUrl = "http://localhost:57353/api/auth/"//use this for postman later
+  authUrl = "http://localhost:4200/api/auth/"//use this for postman later
   constructor(private http: HttpClient) { }
 
   login(model:any){//gives an observable

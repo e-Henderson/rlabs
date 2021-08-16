@@ -9,6 +9,7 @@
   
   <name>project1-backend Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<maven.compiler.source>1.8</maven.compiler.source>
@@ -32,14 +33,14 @@
 	<dependency>
 		 <groupId>org.hibernate</groupId>
 		 <artifactId>hibernate-core</artifactId>
-		 <version>3.6.10.Final</version>
+		 <version>4.3.11.Final</version><!-- change back to 4.3.11.Final if this doesn't work -->
 	</dependency>
 		
-	<dependency>
+	<!--<dependency>
 		<groupId>javassist</groupId>
 		<artifactId>javassist</artifactId>
 		<version>3.12.1.GA</version>
-	</dependency>
+	</dependency>-->
 		
 	<dependency>
 		<groupId>org.slf4j</groupId>

@@ -8,6 +8,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
+
+
 @NgModule({
   declarations: [
     LoginComponent,

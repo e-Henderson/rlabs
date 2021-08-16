@@ -10,11 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;//look into this. just copying from vimals ex. 
 //also looking at stack overflow for better definition on these annotations 
 
+@SuppressWarnings("serial")
 @Entity(name="workers")
 public class Workers implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="id_generator")
-	@SequenceGenerator(name="id_generator", sequenceName="workers_id_seq",allocationSize=1)//look at this again
+	@SequenceGenerator(name="id_generator", sequenceName="workers_worker_id_seq",allocationSize=1)//look at this again
 	@Column(name="worker_id")
 	private int id;
 	
@@ -47,7 +48,6 @@ public class Workers implements Serializable{
 	
 	//////constructors////////
 	public Workers() {
-		super();
 	}
 	
 	public Workers(int id,String fname,String lname, String username, String password, String role,

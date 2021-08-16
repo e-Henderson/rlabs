@@ -13,8 +13,8 @@ export class ResetPasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm){
-    console.log(f.value);
-    console.log(f.valid);
+  onSubmit(form: NgForm){
+    console.log(form.value);
+    console.log(form.valid);
   }
 }
